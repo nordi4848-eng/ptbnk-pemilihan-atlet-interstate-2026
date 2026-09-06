@@ -1,0 +1,12 @@
+{
+  "name": "PTBNK Pemilihan Atlet Interstate 2026",
+  "short_name": "PTBNK 2026",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#dff7f5",
+  "theme_color": "#16B8AE",
+  "icons": [
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}
