@@ -490,6 +490,11 @@ body{
   padding-top:2px!important;
 }
 
+
+/* PAGE ISOLATION FIX — Ranking hanya pada page Ranking */
+section.page{display:none!important}
+section.page.active{display:block!important}
+
 </style>
 
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -615,7 +620,11 @@ let currentCat='BOY U21';
 const LIVE={};
 
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('section.page').forEach(p=>{
+    const on=p.id===id;
+    p.classList.toggle('active',on);
+    p.style.display=on?'block':'none';
+  });
   document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.page===id));
   if(id==='ranking') renderRanking();
   if(id==='selected') renderSelected();
@@ -740,6 +749,13 @@ renderRanking(false);
   window.addEventListener('resize',updateCategoryDots);
   setTimeout(updateCategoryDots,50);
 })();
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('section.page').forEach(p=>{
+    p.style.display=p.classList.contains('active')?'block':'none';
+  });
+});
 
 </script>
 <script>
